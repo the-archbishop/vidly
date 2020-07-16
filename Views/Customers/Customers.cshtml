@@ -1,7 +1,26 @@
-﻿@{
+﻿@model Vidly.ViewModels.CustomerViewModel
+
+@{
     ViewBag.Title = "Customers";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<br />
+<h2>@ViewBag.Title</h2>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model.Customer)
+        {
+            <tr>
+                <th scope="row">@i.Id</th>
+                <td><a href="/customers/details/@i.Id">@i.Name</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
