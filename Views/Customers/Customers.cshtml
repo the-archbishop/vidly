@@ -12,15 +12,17 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
+            <th scope="col">Discount Rate</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var i in Model.Customer)
+        @foreach (var customer in Model.Customer)
         {
-            <tr>
-                <th scope="row">@i.Id</th>
-                <td><a href="/customers/details/@i.Id">@i.Name</a></td>
-            </tr>
+        <tr>
+            <th scope="row">@customer.Id</th>
+            <td><a href="/customers/details/@customer.Id">@customer.Name</a></td>
+            <td>@customer.MembershipType.DiscountRate%</td>
+        </tr>
         }
     </tbody>
 </table>
